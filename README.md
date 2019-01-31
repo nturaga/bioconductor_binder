@@ -16,7 +16,7 @@ root of a GitHub repository:
  
 
 ```bash
-FROM rocker/binder:3.4.3
+FROM nitesh1989/bioconductor_binder:3.5.2
 
 ## Copies your repo files into the Docker Container
 USER root
