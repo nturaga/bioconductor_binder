@@ -1,15 +1,6 @@
-[![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)](https://github.com/joethorley/stability-badges#experimental)
-[![Build Status](https://travis-ci.org/rocker-org/binder.svg?branch=master)](https://travis-ci.org/rocker-org/binder)
-[![](https://img.shields.io/docker/pulls/rocker/binder.svg)](https://hub.docker.com/r/rocker/binder) [![](https://img.shields.io/docker/automated/rocker/binder.svg)](https://hub.docker.com/r/rocker/binder/builds)
-<!-- [![](https://images.microbadger.com/badges/image/rocker/binder.svg)](https://microbadger.com/images/rocker/binder) --> 
+# nturaga/bioconductor_binder
 
-
-
-![](img/rocker.png) ![](img/binder.png) 
-
-# rocker/binder
-
-Adds [binder](http://mybinder.org/) abilities on top of the [`rocker/geospatial`](https://hub.docker.com/r/rocker/geospatial) images. 
+Adds [binder](http://mybinder.org/) abilities on top of the [`rocker/verse`](https://hub.docker.com/r/rocker/verse) images along with appropriate Bioconductor version `BiocManager`. 
 
 
 # Deploy methods
@@ -20,8 +11,8 @@ Adds [binder](http://mybinder.org/) abilities on top of the [`rocker/geospatial`
 _This approach uses the public binder cloud and requires no installation_
 
 
-Just add a file named `Dockerfile` with the following contents to the root of a GitHub
-repository: 
+Just add a file named `Dockerfile` with the following contents to the
+root of a GitHub repository:
  
 
 ```bash
@@ -42,7 +33,9 @@ RUN if [ -f install.R ]; then R --quiet -f install.R; fi
 
 If you add an `install.R` file to the root directory of your GitHub repo as well, any R commands in that file will automatically be run as well.  This should make it easier for users to install additional R packages from CRAN, GitHub etc by just writing R code to do so.  
 
-*Note* You can extend this Dockerfile if necessary to include additional system dependencies; see [Troubleshooting](#troubleshooting) below.
+*Note* You can extend this Dockerfile if necessary to include
+additional system dependencies; see
+[Troubleshooting](#troubleshooting) below.
 
 ### Want Button!
 
@@ -69,7 +62,7 @@ _This approach works on any machine on which you have Docker installed._
 The `rocker/binder` images can be run like any other docker image:
 
 ```
-docker run -p 8888:8888 rocker/binder
+docker run -p 8888:8888 nitesh1989/bioconductor_binder
 ```
 
 Note that binder will run Juyter Notebook on port `8888` by default.  The above
@@ -104,7 +97,6 @@ To solve this, you will need to add the following line to your Dockerfile, right
 RUN apt-get update && apt-get -y install libgsl-dev
 ```
 
-Or, just get in touch by opening an issue. We'll try and resolve common cases so more things work out of the box.  
 
 
 ## Credits
